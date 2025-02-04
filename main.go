@@ -6,5 +6,6 @@ package main
 import "github.com/dicedb/dice/cmd"
 
 func main() {
+	// execute
 	cmd.Execute()
 }
