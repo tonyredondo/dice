@@ -49,6 +49,13 @@ jobs:
               - '**/*.go'
       - name: Install dependencies
         run: go get -v . # Check if there is any version changes from the cache
+
+      - name: Configure Datadog Test Optimization
+        uses: datadog/test-visibility-github-action@d1fe48ed2c9705bfd5bdaadfdc94d05be3a99a16
+        with:
+          languages: go
+          api_key: ${{ secrets.DD_API_KEY }}
+        
       - name: Build
         run: make build
       - name: Run Unit tests
